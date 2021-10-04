@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -60,7 +62,7 @@ Route::get('/hitung-luas-segitiga/{alas?}/{tinggi?}', function ($alas = 1, $ting
 });
 
 
-// Route Group
+// Route Group prefik yaitu orang tua dari url
 Route::group(['prefix' => 'jurusan'], function(){
     Route::get('/', function () {
         return 'berhasil';
@@ -74,3 +76,14 @@ Route::group(['prefix' => 'jurusan'], function(){
         return $nama;
     });
 });
+
+// mendaftarkan controlller (DataSiswaController) ke route
+route::get('data-siswa', [DataSiswaController::class, 'datasiswa']);
+route::get('data-siswi', [DataSiswaController::class, 'datasiswi']);
+// jika menggunakan parameter
+route::get('nama/{nama}', [DataSiswaController::class, 'nama']);
+// jika optional
+route::get('nama/{nama?}', [DataSiswaController::class, 'nama']);
+
+
+route::resource('user', UserController::class);
