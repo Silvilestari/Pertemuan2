@@ -58,3 +58,19 @@ Route::get('/hitung-luas-segitiga/{alas}/{tinggi}', function ($alas, $tinggi) {
 Route::get('/hitung-luas-segitiga/{alas?}/{tinggi?}', function ($alas = 1, $tinggi = 1) {
     return 'Hasil Luas Segitiganya : ' .($alas * $tinggi) * 0.5;
 });
+
+
+// Route Group
+Route::group(['prefix' => 'jurusan'], function(){
+    Route::get('/', function () {
+        return 'berhasil';
+    });
+
+    Route::get('/kelas/{namaKelas}', function ($namaKelas) {
+        return $namaKelas;
+    });
+
+    Route::get('/wali-kelas/{nama}', function ($nama) {
+        return $nama;
+    });
+});
