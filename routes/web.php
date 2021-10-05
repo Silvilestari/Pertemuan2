@@ -90,13 +90,11 @@ route::resource('user', UserController::class);
 
 
 //resources
-Route::get('profile' , function() {
+Route::get('/profile' , function() {
     return view('profile.index');
 });
 
-//resources
-Route::get('profile/{nama}' , function() {
-    return view('profile.index', ['nama_user'=> $nama]);
+
+Route::get('/album', function () {
+    return view('profile.album');
 });
-
-
