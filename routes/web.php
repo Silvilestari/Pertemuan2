@@ -87,3 +87,16 @@ route::get('nama/{nama?}', [DataSiswaController::class, 'nama']);
 
 
 route::resource('user', UserController::class);
+
+
+//resources
+Route::get('profile' , function() {
+    return view('profile.index');
+});
+
+//resources
+Route::get('profile/{nama}' , function() {
+    return view('profile.index', ['nama_user'=> $nama]);
+});
+
+
