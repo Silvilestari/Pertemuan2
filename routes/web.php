@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Hallo Pak';
+    return view('index');
 });
 
 Route::get('laravel/framework', function () {
@@ -98,3 +98,11 @@ Route::get('/profile' , function() {
 Route::get('/album', function () {
     return view('profile.album');
 });
+
+Route::get('hvsuyvcuyhdsb', function () {
+    return view('album');
+})->name('album');
+
+Route::get('artis', function () {
+    return view('artis');
+})->name('artis');
